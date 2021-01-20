@@ -1,25 +1,25 @@
 package main
 
 import (
-    "fmt"
+	"fmt"
 )
 
-func twoSum(nums []int, target int) []int {
-    store := make(map[int]int, len(nums))
-    for i, v := range nums {
+func TwoSum(nums []int, target int) []int {
 
-        if j, ok := store[target - v]; ok {
-            return []int{j, i}
-        }
-        store[v] = i
-    }
+	s := make(map[int]int, len(nums))
+	for i, v := range nums {
+		if j, ok := s[target-v]; ok {
+			return []int{j, i}
+		}
 
-    return nil
+		s[v] = i
+	}
+	return nil
 }
 
 func main() {
-    var nums = []int{2,7,2,15}
-    var target int = 4
+	var nums = []int{2, 7, 2, 15}
+	var target int = 4
 
-    fmt.Println(twoSum(nums, target))
+	fmt.Println(TwoSum(nums, target))
 }
