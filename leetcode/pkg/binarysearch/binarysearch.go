@@ -19,9 +19,9 @@ func BasicBinarySearch(nums []int, target int) int {
 
 // 明白搜索边界的概念，[left, right)
 // 此时的搜索边界是：左闭右开，那么mid一定比平常情况下往右一位
-// 这是再让right等于mid，让mid继续往左推进，知道左边第一个出现的中值
+// 这时再让right等于mid，让mid继续往左推进，直到左边第一个出现的中值
 
-// 这种情况对应的是：1，2， 3，3，3，3，3，3， 5
+// 这种情况对应的是：1，2，3，3，3，3，3，3，5
 // 当target = 3时， 找到的一定时最左边那个3
 func LeftBoundaryBinarySearch(nums []int, target int) int {
 	left, right := 0, len(nums)

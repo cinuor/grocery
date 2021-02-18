@@ -23,3 +23,16 @@ func main() {
 
 	fmt.Println(TwoSum(nums, target))
 }
+
+func twosum(nums []int, target int) []int {
+	s := make(map[int]int)
+
+	for i, v := range nums {
+		if j, ok := s[target-v]; ok {
+			return []int{j, i}
+		}
+
+		s[v] = i
+	}
+	return nil
+}
