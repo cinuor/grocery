@@ -13,6 +13,7 @@ def find_range(of, filename):
             max = num
     return min, max
 
+
 def buketSort(cap, filename, new_filename):
     opened_files = list()
     of = open(filename, "r", 1024)
@@ -20,9 +21,9 @@ def buketSort(cap, filename, new_filename):
     min, max = find_range(of, filename)
 
     # 新建小文件
-    n = (max-min) // cap + 1
+    n = (max - min) // cap + 1
     for i in range(0, n):
-        name = "{0}-{1}.txt".format(min+i*cap, min+(i+1)*cap)
+        name = "{0}-{1}.txt".format(min + i * cap, min + (i + 1) * cap)
         f = open(name, "w+", 128)
         opened_files.append(f)
 
@@ -31,7 +32,7 @@ def buketSort(cap, filename, new_filename):
     for line in of:
         num = int(line.strip("\n"))
         f = opened_files[num // cap]
-        f.write(str(num)+'\n')
+        f.write(str(num) + '\n')
 
     for f in opened_files:
         f.flush()
@@ -43,7 +44,7 @@ def buketSort(cap, filename, new_filename):
         nums = [int(x) for x in f.readlines()]
         nums.sort()
         for num in nums:
-            nf.write(str(num)+'\n')
+            nf.write(str(num) + '\n')
         f.close()
 
     nf.flush()
@@ -51,5 +52,6 @@ def buketSort(cap, filename, new_filename):
     of.close()
     # 关闭新文件
     nf.close()
+
 
 buketSort(1000000, "./numbers.txt", "./sorted_numbers.txt")
